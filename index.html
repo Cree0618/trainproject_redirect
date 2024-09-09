@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitch OAuth Callback</title>
+    <title>Twitch OAuth Token</title>
 </head>
 <body>
-    <h1>Twitch OAuth Callback</h1>
+    <h1>Twitch OAuth Token</h1>
     <p id="token"></p>
     <script>
-        // Extract the access token from the URL fragment
         const hash = window.location.hash.substring(1);
         const params = new URLSearchParams(hash);
         const accessToken = params.get('access_token');
-
         if (accessToken) {
             document.getElementById('token').textContent = `Your access token is: ${accessToken}`;
-            // You can add code here to send the token to your backend or store it securely
         } else {
             document.getElementById('token').textContent = 'No access token found in the URL.';
         }
